@@ -25,7 +25,7 @@ exports.saveCredentials = (req, res) => {
 
 exports.createToken = (req, res) => {
     Credential
-        .findById(req.body.userid)
+        .findByPk(req.body.userid)
         .then(credential => {
             bcrypt
                 .compare(req.body.password, credential.password)
